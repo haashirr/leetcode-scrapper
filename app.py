@@ -44,7 +44,7 @@ def load_inverted_index():
 
 
 def load_link_of_qs():
-    with open("Leetcode-Questions-Scrapper/Qdata/Qindex.txt", "r") as f:
+    with open("Leetcode-Questions-Scrapper/Qindex.txt", "r") as f:
         links = f.readlines()
 
     return links
