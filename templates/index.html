@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CodeSage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .pagination {
+        justify-content: center;
+        margin: 20px 20px 20px 20px;
+      }
+
+      .pagination a {
+        color: #d0d0d0;
+        margin: 20px 20px 20px 20px;
+      }
+      html,
+      body {
+        height: 100%;
+        display: grid;
+        grid-template-rows: 1fr auto;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        padding: 2rem;
+        background: #02011e;
+        color: #d0d0d0;
+      }
+
+      footer {
+        display: flex;
+        justify-content: flex-end;
+        color: #dddddd;
+        padding: 2rem;
+        font-size: 0.8rem;
+        letter-spacing: 0.8px;
+        width: 100%;
+      }
+      .second {
+        font-size: 20px;
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 2rem;
+        font-weight: 600;
+        font-size: 3.2rem;
+      }
+
+      h3 {
+        color: #dddddd;
+        font-size: 1.7rem;
+        text-align: center;
+        font-weight: 500;
+        letter-spacing: 3px;
+      }
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      .search {
+        display: flex;
+        justify-content: center;
+left: 30%;
+        width: 100%;
+        max-width: 500px;
+
+        position: relative;
+        top: 70% !important;
+      }
+
+      .search-input {
+        width: 75%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+      }
+
+      .search-button {
+        width: 25%;
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        background-color: #097e86;
+        color: white;
+        cursor: pointer;
+        text-align: center;
+        font-size: 16px;
+      }
+
+      .search-button:hover {
+        background-color: #159696;
+      }
+
+      .card-text {
+        font-size: 28px;
+        font-weight: 500;
+        color: #dddddd;
+        margin-bottom: 5rem;
+        letter-spacing: 1px;
+        position: relative;
+        bottom: 40px;
+      }
+
+      .card-title {
+        height: 30px;
+        width: 30px;
+      }
+      .but {
+        border-radius: 50px;
+        font-weight: 600;
+        font-family: "Poppins";
+        color: #ffffff;
+        font-size: 14px;
+        background: #097e86;
+        padding: 10px 35px 10px 35px;
+        text-decoration: none !important;
+        box-shadow: 0px 0px 5px #ffffff, inset 0px 0px 3px #ffffff;
+        cursor: pointer;
+        border: none;
+        text-align: center;
+        margin: 10px auto;
+        display: block;
+        position: relative;
+        top: 80px;
+      }
+
+      .but:hover {
+        background: #159696;
+        text-decoration: none;
+      }
+
+      .card--body {
+        margin-bottom: 10px;
+      }
+      /* Tablets */
+      @media (max-width: 800px) {
+        body {
+          margin-bottom: 3rem; /* adjust as per your design */
+        }
+        footer {
+          font-size: 0.75rem;
+          height: 3rem; /* adjust as per your design */
+        }
+        h1 {
+          font-size: 2.5rem;
+        }
+
+        h3 {
+          font-size: 1.5rem;
+        }
+
+        .card {
+          max-width: 700px;
+        }
+
+        .footer {
+          font-size: 0.75rem;
+        }
+        .search {
+          
+          left: 20%;
+        }
+      }
+
+      /* Mobile devices */
+      @media (max-width: 480px) {
+        body {
+          padding: 1rem;
+          margin-bottom: 2rem; /* adjust as per your design */
+        }
+        footer {
+          font-size: 0.65rem;
+          height: 2rem; /* adjust as per your design */
+        }
+
+        h1 {
+          font-size: 2rem;
+        }
+
+        h3 {
+          font-size: 1.3rem;
+        }
+
+        .search {
+          flex-direction: column;
+          left: 1%;
+        }
+
+        .search-input {
+          width: 100%;
+          margin-bottom: 10px;
+        }
+
+        .search-button {
+          width: 100%;
+        }
+
+        .card {
+          max-width: 90vw;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="tsparticles"></div>
+    <h1 class="name-full">Hey there!</h1>
+    <h3>
+      Welcome to the journey into the depths of Data Structures and Algorithms.
+    </h3>
+    <h3 class="second">
+      From dynamic programming to binary trees, <br />
+      sorting algorithms to graph traversals, <br />
+      your determination will be tested with each encounter :)
+    </h3>
+
+    <form action="/" method="POST">
+      {{ form.csrf_token }}
+      <div class="form-row justify-content-center">
+        <div class="search">
+          <input
+            type="text"
+            class="search-input"
+            placeholder="Enter your search query"
+            name="search"
+          />
+          <button class="search-button">Search</button>
+        </div>
+      </div>
+    </form>
+
+    {% if not results %}
+    <div class="container">
+      <h5 class="card-title">
+        {% if not search_query %}
+        <h1>⬆️</h1>
+        {% else %}No Results Found{% endif %}
+      </h5>
+      {% if not search_query %}
+      <p class="card-text">Enter a topic you want to practice</p>
+      {% else %}
+      <p class="card-text">
+        Sorry, no matching questions found for "{{ search_query }}".
+      </p>
+      {% endif %}
+    </div>
+
+    {% else %}
+    <div class="container">
+      <div class="row justify-content-center">
+        {% for result in results %}
+        <div class="col-lg-4 col-md-6 col-sm-12">
+          <div class="card">
+            <div class="card--body">
+              <a href="{{ result['Question Link'] }}" target="_blank">
+                <button class="but">{{ result["Question title"] }}</button>
+              </a>
+            </div>
+          </div>
+        </div>
+        {% if loop.last and loop.index % 3 != 0 %} {% for i in range(3 -
+        (loop.index % 3)) %}
+        <div class="col-lg-4 col-md-6 col-sm-12"></div>
+        {% endfor %} {% endif %} {% endfor %}
+      </div>
+    </div>
+    {% if results|length >= per_page %}
+    <div class="pagination">
+      {% if page > 1 %}
+      <a href="{{ url_for('home', page=page-1, query=session['query']) }}"
+        >Previous</a
+      >
+      {% endif %}
+      <span>Page {{ page }}</span>
+      {% if page < total_pages %}
+      <a href="{{ url_for('home', page=page+1, query=session['query']) }}"
+        >Next</a
+      >
+      {% endif %}
+    </div>
+
+    {% endif %} {% endif %}
+    <div class="footer">You make a difference, thank you for being here <3</div>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles"></script>
+    <script>
+      tsParticles.load("tsparticles", {
+        fullScreen: {
+          enable: true,
+        },
+        fpsLimit: 60,
+        interactivity: {
+          events: {
+            onClick: {
+              enable: true,
+              mode: "push",
+            },
+            onHover: {
+              enable: true,
+              mode: "repulse",
+              distance: 400,
+            },
+            resize: true,
+          },
+          modes: {
+            push: {
+              quantity: 4,
+            },
+            repulse: {
+              distance: 150,
+              duration: 0.4,
+            },
+          },
+        },
+        particles: {
+          color: {
+            value: "#ffffff",
+          },
+          links: {
+            color: "#ffffff",
+            distance: 100,
+            enable: true,
+            opacity: 0.5,
+            width: 1,
+          },
+          collisions: {
+            enable: true,
+          },
+          move: {
+            directions: "none",
+            enable: true,
+            outModes: {
+              default: "bounce",
+            },
+            random: false,
+            speed: 2,
+            straight: false,
+          },
+          number: {
+            density: {
+              enable: true,
+              area: 1700,
+            },
+            value: 40,
+          },
+          opacity: {
+            value: 0.5,
+          },
+          shape: {
+            type: "circle",
+          },
+          size: {
+            value: { min: 1, max: 2 },
+          },
+        },
+        detectRetina: true,
+      });
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>
