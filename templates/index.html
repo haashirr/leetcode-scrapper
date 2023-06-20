@@ -11,210 +11,262 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
-    <style>
-      .pagination {
-        justify-content: center;
-        margin: 20px 20px 20px 20px;
-      }
+   <style>
+    /* Common Styles */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
 
-      .pagination a {
-        color: #d0d0d0;
-        margin: 20px 20px 20px 20px;
-      }
-      html,
-      body {
-        height: 100%;
-        display: grid;
-        grid-template-rows: 1fr auto;
-        margin: 0;
-        padding: 0;
-      }
+body {
+  font-family: "Poppins", sans-serif;
+  background: #02011e;
+  color: #d0d0d0;
+}
 
-      body {
-        font-family: "Poppins", sans-serif;
-        padding: 2rem;
-        background: #02011e;
-        color: #d0d0d0;
-      }
+h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-weight: 600;
+  font-size: 3.2rem;
+  margin-top: 140px;
 
-      footer {
-        display: flex;
-        justify-content: flex-end;
-        color: #dddddd;
-        padding: 2rem;
-        font-size: 0.8rem;
-        letter-spacing: 0.8px;
-        width: 100%;
-      }
-      .second {
-        font-size: 20px;
-      }
+}
 
-      h1 {
-        text-align: center;
-        margin-bottom: 2rem;
-        font-weight: 600;
-        font-size: 3.2rem;
-      }
+h3 {
+  color: #dddddd;
+  font-size: 1.7rem;
+  text-align: center;
+  font-weight: 500;
+  letter-spacing: 3px;
+  margin-bottom: 40px;
+}
 
-      h3 {
-        color: #dddddd;
-        font-size: 1.7rem;
-        text-align: center;
-        font-weight: 500;
-        letter-spacing: 3px;
-      }
-      .container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-      }
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 
-      .search {
-        display: flex;
-        justify-content: center;
-left: 30%;
-        width: 100%;
-        max-width: 500px;
+.search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 500px;
+  margin: 150px auto 5px auto;
+}
 
-        position: relative;
-        top: 70% !important;
-      }
 
-      .search-input {
-        width: 75%;
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        font-size: 16px;
-      }
+.search-input {
+  width: 75%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
 
-      .search-button {
-        width: 25%;
-        padding: 10px;
-        border: none;
-        border-radius: 4px;
-        background-color: #097e86;
-        color: white;
-        cursor: pointer;
-        text-align: center;
-        font-size: 16px;
-      }
+.search-button {
+  width: 25%;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #097e86;
+  color: white;
+  cursor: pointer;
+  text-align: center;
+  font-size: 16px;
+}
 
-      .search-button:hover {
-        background-color: #159696;
-      }
+.search-button:hover {
+  background-color: #159696;
+}
 
-      .card-text {
-        font-size: 28px;
-        font-weight: 500;
-        color: #dddddd;
-        margin-bottom: 5rem;
-        letter-spacing: 1px;
-        position: relative;
-        bottom: 40px;
-      }
+.card-text {
+  font-size: 28px;
+  font-weight: 500;
+  color: #dddddd;
+  margin-bottom: 5rem;
+  letter-spacing: 1px;
+  position: relative;
+  bottom: 40px;
+}
 
-      .card-title {
-        height: 30px;
-        width: 30px;
-      }
-      .but {
-        border-radius: 50px;
-        font-weight: 600;
-        font-family: "Poppins";
-        color: #ffffff;
-        font-size: 14px;
-        background: #097e86;
-        padding: 10px 35px 10px 35px;
-        text-decoration: none !important;
-        box-shadow: 0px 0px 5px #ffffff, inset 0px 0px 3px #ffffff;
-        cursor: pointer;
-        border: none;
-        text-align: center;
-        margin: 10px auto;
-        display: block;
-        position: relative;
-        top: 80px;
-      }
+.card-title {
+  height: 30px;
+  width: 30px;
+}
 
-      .but:hover {
-        background: #159696;
-        text-decoration: none;
-      }
+.but {
+  border-radius: 15px;
+  font-weight: 600;
+  font-family: "Poppins";
+  color: #ffffff;
+  font-size: 14px;
+  background: #097e86;
+  padding: 10px 35px 10px 35px;
+  text-decoration: none !important;
+  box-shadow: 0px 0px 5px #ffffff, inset 0px 0px 3px #ffffff;
+  cursor: pointer;
+  border: none;
+  text-align: center;
+  margin: 10px auto;
+  display: block;
+  position: relative;
+  top: 80px;
+}
 
-      .card--body {
-        margin-bottom: 10px;
-      }
-      /* Tablets */
-      @media (max-width: 800px) {
-        body {
-          margin-bottom: 3rem; /* adjust as per your design */
-        }
-        footer {
-          font-size: 0.75rem;
-          height: 3rem; /* adjust as per your design */
-        }
-        h1 {
-          font-size: 2.5rem;
+.but:hover {
+  background: #159696;
+  text-decoration: none;
+}
+
+.card--body {
+  margin-bottom: 10px;
+}
+.footer {
+  display: flex;
+  flex-direction: row-reverse;
+  position: relative;
+  right: 10px !important;
+  bottom: 10px !important;
+}
+.pagination {
+            display: flex;
+            position: relative;
+    top: 10%;
+    right: 3%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: #02011e;
+    color: #dddddd;
+    font-size: 0.65rem;
+  
+    padding: 1rem;
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0 4 1 4rem;
         }
 
-        h3 {
-          font-size: 1.5rem;
+        .pagination a {
+            display: flex;
+            justify-content: center;
+            background-color: #02011e;
+            color: #dddddd;
+            padding: 0.5rem;
+            margin: 0 4 1 4rem;
+     cursor: pointer;
+            border-radius: 4px;
+            font-size: medium !important;
         }
 
-        .card {
-          max-width: 700px;
-        }
+        
+/* Tablets */
+@media (max-width: 800px) {
+  h1 {
+    font-size: 2.5rem;
+  }
 
-        .footer {
-          font-size: 0.75rem;
-        }
-        .search {
-          
-          left: 20%;
-        }
-      }
+  h3 {
+    font-size: 1.5rem;
+  }
 
-      /* Mobile devices */
-      @media (max-width: 480px) {
-        body {
-          padding: 1rem;
-          margin-bottom: 2rem; /* adjust as per your design */
-        }
-        footer {
-          font-size: 0.65rem;
-          height: 2rem; /* adjust as per your design */
-        }
+  .card {
+    max-width: 700px;
+  }
 
-        h1 {
-          font-size: 2rem;
-        }
+  .search {
+    flex-direction: column;
+    left: 10%;
+  }
+  .search-input {
+    width: 80%;
+    margin-bottom: 10px;
+  }
+.footer {
+  position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+ 
+  position: relative;
+  top: 300px;
+}
+  
+}
 
-        h3 {
-          font-size: 1.3rem;
-        }
+/* Mobile devices */
+@media (max-width: 480px) {
+ 
 
-        .search {
-          flex-direction: column;
-          left: 1%;
-        }
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
 
-        .search-input {
-          width: 100%;
-          margin-bottom: 10px;
-        }
+  .container {
+    flex: 1;
+    margin-bottom: 3rem; /* Adjust as per your design */
+  }
 
-        .search-button {
-          width: 100%;
-        }
+  .footer {
+    font-size: 0.75rem;
+    height: 3rem; /* Adjust as per your design */
+    background-color: #02011e;
+    color: #dddddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+ 
+  position: relative;
+  top: 300px;
 
-        .card {
-          max-width: 90vw;
-        }
-      }
-    </style>
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-size: 1.3rem;
+  }
+
+  .search {
+    flex-direction: column;
+    right: 60%;
+  }
+
+  .search-input {
+    width: 60%;
+    margin-bottom: 10px;
+  }
+
+  .search-button {
+    width: 30%;
+  }
+
+  .card {
+    max-width: 90vw;
+  }
+  .card-text {
+    flex-direction: column;
+    left: 4%;
+    font-size: 23px;
+  }
+}
+
+   </style>
+
   </head>
   <body>
     <div id="tsparticles"></div>
@@ -282,7 +334,7 @@ left: 30%;
     <div class="pagination">
       {% if page > 1 %}
       <a href="{{ url_for('home', page=page-1, query=session['query']) }}"
-        >Previous</a
+        > Previous </a
       >
       {% endif %}
       <span>Page {{ page }}</span>
@@ -375,3 +427,4 @@ left: 30%;
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   </body>
 </html>
+
